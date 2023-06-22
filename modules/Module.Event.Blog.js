@@ -35,7 +35,10 @@ async function blogHandler(force) {
     .setThumbnail(thumbnailUrl.split('?', 1)[0]);
   return await webhookUtil((Module.client.guilds.cache.find(g => g.channels.cache.has(snowflakes.channels.blogAnnouncements))).channels.cache.get(snowflakes.channels.blogAnnouncements), "Blog Update", "./avatar/base.png", {
     content: `<@&${snowflakes.roles.Updates.AllUpdates}>, <@&${snowflakes.roles.Updates.BlogUpdates}>`,
+    "allowed_mentions": {
+    "parse": ["everyone"],
     embeds: [embed]
+ 
   });
 }
 
